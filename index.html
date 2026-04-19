@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haneef Mango Farm - Fresh Mangoes Direct from Garden</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: white;
+            border-bottom: 2px solid #dcfce7;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-emoji {
+            font-size: 2rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #15803d;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #4b5563;
+        }
+
+        nav {
+            display: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            cursor: pointer;
+            font-weight: 500;
+            color: #4b5563;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #15803d;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cart-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #15803d;
+        }
+
+        @media (min-width: 768px) {
+            .menu-btn {
+                display: none;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            background-color: #f0fdf4;
+            border-top: 2px solid #dcfce7;
+            padding: 1rem;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.5rem 0;
+            color: #15803d;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, #fef3c7, #ffffff);
+            padding: 3rem 1rem;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        @media (min-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+
+        .hero .highlight {
+            font-weight: 600;
+            color: #15803d;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #16a34a;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #15803d;
+        }
+
+        .hero-emoji {
+            text-align: center;
+            font-size: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-emoji {
+                font-size: 6rem;
+            }
+        }
+
+        /* Features */
+        .features {
+            padding: 3rem 1rem;
+        }
+
+        .features h3 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #111827;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            background-color: #f0fdf4;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .feature-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card h4 {
+            font-weight: bold;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+
+        .feature-card p {
+            color: #374151;
+        }
+
+        /* Stock Alert */
+        .stock-alert {
+            background-color: #fef08a;
+            border-left: 4px solid #ca8a04;
+            padding: 1.5rem 1rem;
+            margin: 2rem 0;
+        }
+
+        .stock-alert p {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #713f12;
+        }
+
+        /* Shop Section */
+        .shop {
+            padding: 3rem 1rem;
+        }
+
+        .shop h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+
+        .shop > p {
+            color: #374151;
+            margin-bottom: 2rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .product-card {
+            background-color: white;
+            border: 2px solid #dcfce7;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            background-color: #f0fdf4;
+            padding: 2rem;
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+            color: #111827;
+        }
+
+        .product-desc {
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #15803d;
+        }
+
+        .stock-badge {
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .stock-high {
+            background-color: #dcfce7;
+            color: #15803d;
+        }
+
+        .stock-low {
+            background-color: #fef3c7;
+            color: #b45309;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-add {
+            flex: 1;
+            background-color: #2563eb;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-add:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-whatsapp {
+            flex: 1;
+            background-color: #16a34a;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #15803d;
+        }
+
+        /* About Section */
+        .about {
+            padding: 3rem 1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-emoji {
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #111827;
+        }
+
+        .about p {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+
+        .about-highlight {
+            font-weight: 600;
+            color: #15803d;
+        }
+
+        .farm-details {
+            background-color: #f0fdf4;
+            padding: 2rem;
+            border-radius: 0.5rem;
+        }
+
+        .farm-details h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #111827;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .details-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .detail-item {
+            color: #374151;
+        }
+
+        .detail-item strong {
+            color: #111827;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 3rem 1rem;
+        }
+
+        .gallery h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            color: #111827;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .gallery-item {
+            background-color: #f0fdf4;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .gallery-emoji {
+            font-size: 3.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-item h4 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+
+        .gallery-item p {
+            color: #374151;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 3rem 1rem;
+        }
+
+        .contact h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            color: #111827;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .contact-emoji {
+            font-size: 1.5rem;
+            color: #15803d;
+            flex-shrink: 0;
+        }
+
+        .contact-info h4 {
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .contact-info p {
+            color: #374151;
+            margin-top: 0.25rem;
+        }
+
+        .contact-info a {
+            color: #15803d;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .whatsapp-box {
+            background-color: #f0fdf4;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .whatsapp-box h3 {
+            font-weight: bold;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        .whatsapp-box p {
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .btn-whatsapp-full {
+            display: block;
+            width: 100%;
+            background-color: #16a34a;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-whatsapp-full:hover {
+            background-color: #15803d;
+        }
+
+        /* Reviews */
+        .reviews-section {
+            background-color: #fef3c7;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .reviews-section h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #111827;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .review-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            color: #fbbf24;
+            font-size: 1rem;
+        }
+
+        .review-text {
+            color: #374151;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: #111827;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #15401a;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        footer p:last-child {
+            color: #86efac;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-emoji">🥭</div>
+                    <div class="logo-text">
+                        <h1>Haneef Mango Farm</h1>
+                        <p>Fresh from garden to home</p>
+                    </div>
+                </div>
+                
+                <nav id="desktopNav">
+                    <a onclick="showSection('home')" class="active">Home</a>
+                    <a onclick="showSection('shop')">Shop</a>
+                    <a onclick="showSection('about')">About</a>
+                    <a onclick="showSection('gallery')">Gallery</a>
+                    <a onclick="showSection('contact')">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="cart-btn" onclick="toggleCart()">
+                        🛒
+                        <span class="cart-count" id="cartCount" style="display:none;">0</span>
+                    </button>
+                    <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">☰</button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a onclick="showSection('home'); toggleMenu()">Home</a>
+                <a onclick="showSection('shop'); toggleMenu()">Shop</a>
+                <a onclick="showSection('about'); toggleMenu()">About</a>
+                <a onclick="showSection('gallery'); toggleMenu()">Gallery</a>
+                <a onclick="showSection('contact'); toggleMenu()">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- HOME SECTION -->
+        <section id="home" class="hero active">
+            <div class="container">
+                <div class="hero-content">
+                    <div>
+                        <h2>Fresh Mangoes Directly From Our Garden</h2>
+                        <p>No middlemen. No cold storage. Just pure, fresh, farm-to-doorstep goodness.</p>
+                        <p class="highlight">🌱 3 acres of premium mango varieties | 🥭 Hand-picked daily</p>
+                        <button class="btn-primary" onclick="showSection('shop')">Order Now</button>
+                    </div>
+                    <div class="hero-emoji">🥭</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="stock-alert">
+            <div class="container">
+                <p>⏰ Limited harvest available this season! Pre-book your mangoes today.</p>
+            </div>
+        </div>
+
+        <section class="features">
+            <div class="container">
+                <h3>Why Choose Haneef Mango Farm?</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-emoji">🌿</div>
+                        <h4>Farm Fresh</h4>
+                        <p>Harvested daily, packed with care</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-emoji">🚚</div>
+                        <h4>Fast Delivery</h4>
+                        <p>Quick dispatch to your doorstep</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-emoji">✅</div>
+                        <h4>Quality Assured</h4>
+                        <p>Best varieties, hand-picked selection</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SHOP SECTION -->
+        <section id="shop" class="shop">
+            <div class="container">
+                <h2>Choose Your Pack</h2>
+                <p>Fresh, premium mangoes at honest prices</p>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">🥭</div>
+                        <div class="product-info">
+                            <h3 class="product-name">3kg Fresh Box</h3>
+                            <p class="product-desc">Perfect for individuals</p>
+                            <div class="product-footer">
+                                <span class="product-price">₹450</span>
+                                <span class="stock-badge stock-high">15 left</span>
+                            </div>
+                            <div class="product-buttons">
+                                <button class="btn-add" onclick="addToCart('3kg Fresh Box', 450)">🛒 Add</button>
+                                <a href="https://wa.me/918688431308?text=Hi%2C%20I%27m%20interested%20in%20ordering%3A%203kg%20Fresh%20Box%20%28%E2%82%B9450%29" class="btn-whatsapp">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">🥭</div>
+                        <div class="product-info">
+                            <h3 class="product-name">5kg Family Pack</h3>
+                            <p class="product-desc">Great for families</p>
+                            <div class="product-footer">
+                                <span class="product-price">₹650</span>
+                                <span class="stock-badge stock-high">20 left</span>
+                            </div>
+                            <div class="product-buttons">
+                                <button class="btn-add" onclick="addToCart('5kg Family Pack', 650)">🛒 Add</button>
+                                <a href="https://wa.me/918688431308?text=Hi%2C%20I%27m%20interested%20in%20ordering%3A%205kg%20Family%20Pack%20%28%E2%82%B9650%29" class="btn-whatsapp">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">🥭</div>
+                        <div class="product-info">
+                            <h3 class="product-name">10kg Premium Bundle</h3>
+                            <p class="product-desc">Best value bulk order</p>
+                            <div class="product-footer">
+                                <span class="product-price">₹1,150</span>
+                                <span class="stock-badge stock-low">8 left</span>
+                            </div>
+                            <div class="product-buttons">
+                                <button class="btn-add" onclick="addToCart('10kg Premium Bundle', 1150)">🛒 Add</button>
+                                <a href="https://wa.me/918688431308?text=Hi%2C%20I%27m%20interested%20in%20ordering%3A%2010kg%20Premium%20Bundle%20%28%E2%82%B91150%29" class="btn-whatsapp">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">🥭</div>
+                        <div class="product-info">
+                            <h3 class="product-name">Handpicked Selection</h3>
+                            <p class="product-desc">Choicest varieties</p>
+                            <div class="product-footer">
+                                <span class="product-price">₹780</span>
+                                <span class="stock-badge stock-high">12 left</span>
+                            </div>
+                            <div class="product-buttons">
+                                <button class="btn-add" onclick="addToCart('Handpicked Selection', 780)">🛒 Add</button>
+                                <a href="https://wa.me/918688431308?text=Hi%2C%20I%27m%20interested%20in%20ordering%3A%20Handpicked%20Selection%20%28%E2%82%B9780%29" class="btn-whatsapp">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">🥭</div>
+                        <div class="product-info">
+                            <h3 class="product-name">Raw Mangoes (3kg)</h3>
+                            <p class="product-desc">Perfect for pickles</p>
+                            <div class="product-footer">
+                                <span class="product-price">₹320</span>
+                                <span class="stock-badge stock-high">25 left</span>
+                            </div>
+                            <div class="product-buttons">
+                                <button class="btn-add" onclick="addToCart('Raw Mangoes (3kg)', 320)">🛒 Add</button>
+                                <a href="https://wa.me/918688431308?text=Hi%2C%20I%27m%20interested%20in%20ordering%3A%20Raw%20Mangoes%20%283kg%29%20%28%E2%82%B9320%29" class="btn-whatsapp">WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-emoji">👨‍🌾</div>
+                    <div>
+                        <h2>Our Story</h2>
+                        <p>Haneef Mango Farm is a family-owned agricultural enterprise based in Nandyalampeta, Andhra Pradesh. For generations, we've been cultivating the finest mango varieties on our 3-acre farm.</p>
+                        <p>We believe in pure, organic farming practices and direct customer relationships. No middlemen, no compromises on quality.</p>
+                        <p class="about-highlight">Every mango from our farm is a promise of freshness and taste.</p>
+                    </div>
+                </div>
+
+                <div class="farm-details">
+                    <h3>Farm Details</h3>
+                    <div class="details-grid">
+                        <div>
+                            <p class="detail-item"><strong>Location:</strong> Somapuram, Nandyalampeta, Andhra Pradesh 516172</p>
+                            <p class="detail-item"><strong>Farm Size:</strong> 3 acres of premium mango varieties</p>
+                            <p class="detail-item"><strong>Varieties:</strong> Alphonso, Banganapalle, Totapuri, Langra & more</p>
+                        </div>
+                        <div>
+                            <p class="detail-item"><strong>Harvesting:</strong> May-August (Peak Season)</p>
+                            <p class="detail-item"><strong>Delivery:</strong> Next-day delivery within Andhra Pradesh</p>
+                            <p class="detail-item"><strong>Packaging:</strong> Eco-friendly, farm-to-door ready</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2>Farm Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-emoji">🌳</div>
+                        <h4>Mango Trees</h4>
+                        <p>Our lush 3-acre orchard</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-emoji">🥭</div>
+                        <h4>Fresh Harvest</h4>
+                        <p>Daily hand-picked mangoes</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-emoji">📦</div>
+                        <h4>Careful Packing</h4>
+                        <p>Hygienic, eco-friendly packing</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-emoji">🚚</div>
+                        <h4>Quick Dispatch</h4>
+                        <p>Farm to doorstep journey</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+
+                <div class="contact-grid">
+                    <div>
+                        <div class="contact-item">
+                            <div class="contact-emoji">📍</div>
+                            <div class="contact-info">
+                                <h4>Farm Location</h4>
+                                <p>Somapuram, Nandyalampeta</p>
+                                <p>Andhra Pradesh 516172</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item" style="margin-top: 2rem;">
+                            <div class="contact-emoji">📱</div>
+                            <div class="contact-info">
+                                <h4>WhatsApp / Phone</h4>
+                                <a href="https://wa.me/918688431308">+91 8688431308</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item" style="margin-top: 2rem;">
+                            <div class="contact-emoji">✉️</div>
+                            <div class="contact-info">
+                                <h4>Email</h4>
+                                <a href="mailto:saritalamahammadhaneef@gmail.com">saritalamahammadhaneef@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="whatsapp-box">
+                        <h3>Quick Order via WhatsApp</h3>
+                        <p>Tap below to send us a message on WhatsApp. We'll confirm your order and delivery details quickly.</p>
+                        <a href="https://wa.me/918688431308?text=Hi%20Haneef%20Mango%20Farm%2C%20I%27d%20like%20to%20place%20an%20order" class="btn-whatsapp-full">
+                            💬 Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reviews-section">
+                    <h3>Customer Love</h3>
+                    <div class="reviews-grid">
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                            </div>
+                            <p class="review-text">"Freshest mangoes I've ever had! Farm quality is amazing."</p>
+                            <p class="review-name">— Ramesh K.</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                            </div>
+                            <p class="review-text">"Packaging was excellent, delivery on time. Highly recommend!"</p>
+                            <p class="review-name">— Priya S.</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-stars">
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                            </div>
+                            <p class="review-text">"Direct from farm to home. Worth every rupee. Will order again!"</p>
+                            <p class="review-name">— Suresh M.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Haneef Mango Farm. All rights reserved.</p>
+            <p>Fresh mangoes directly from our garden to your home. 🥭</p>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update nav
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
+        function toggleCart() {
+            alert('Cart items:\n' + (cart.length === 0 ? 'Empty' : cart.map(item => `${item.name} - ₹${item.price}`).join('\n')) + '\n\nTotal: ₹' + getTotalPrice() + '\n\nPlease order via WhatsApp button on the product card.');
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartCount();
+            alert(`Added "${name}" to cart!\n\nCart Total: ₹${getTotalPrice()}\n\nClick the cart icon or use WhatsApp to complete your order.`);
+        }
+
+        function updateCartCount() {
+            const countEl = document.getElementById('cartCount');
+            if (cart.length > 0) {
+                countEl.textContent = cart.length;
+                countEl.style.display = 'flex';
+            } else {
+                countEl.style.display = 'none';
+            }
+        }
+
+        function getTotalPrice() {
+            return cart.reduce((sum, item) => sum + item.price, 0);
+        }
+    </script>
+</body>
+</html>
